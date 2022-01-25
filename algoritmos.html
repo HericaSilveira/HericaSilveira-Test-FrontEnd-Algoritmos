@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>Algoritmos</h1>
+    <hr></hr>
+
+    <h2>Algoritmo 1</h2>
+
+    <p id="algoritmo1"></p>
+    <p id="algoritmo1.2"></p>
+    <p id="algoritmo1.3"></p>
+
+    <script>
+        let array = ["a", 10, "b", "hola", 122, 15];
+
+        function filtrarLetra(obj) {
+            if (typeof(obj) === 'string') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        let soloLetras = array.filter(filtrarLetra)
+        document.getElementById("algoritmo1").innerHTML = soloLetras.toString();
+
+        let soloNumeros = array.filter(numero => Number.isInteger(numero))
+
+        document.getElementById("algoritmo1.2").innerHTML = soloNumeros.toString();
+
+        let mayor = Math.max.apply(null, soloNumeros);
+
+        document.getElementById("algoritmo1.3").innerHTML = mayor;
+    </script>
+
+
+
+
+    <h2>Algoritmo 2</h2>
+    <p id="algoritmo2"></p>
+
+    <script>
+        const valores = [1, 11, "a", "b", 123];
+        let a = 10
+        let aux = ""
+        let resultado = ""
+        for (i = 0; i < valores.length; i++) {
+            aux = valores[i]
+            if (aux == a) {
+                resultado = aux
+            }
+
+        }
+
+        if (resultado != a) {
+            document.getElementById("algoritmo2").innerHTML = "El valor" + " " + a + " " + "no se encuentra en el arreglo"
+        }
+    </script>
+
+    <h2>Algoritmo 3</h2>
+
+    <p id="algoritmo3"></p>
+
+    <script>
+        let id = generarId()
+
+        function generarId() {
+            let caracteres = "abcdefghijkmnpqrtuvwxyz12346789";
+            let patron = "";
+            for (i = 0; i < 16; i++) patron += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+            patron = (patron).slice(0, 4) + "-" + (patron).slice(4, 8) + "-" + (patron).slice(8, 12) + "-" + (patron).slice(12, 16);
+            return patron
+        }
+
+        document.getElementById("algoritmo3").innerHTML = id;
+    </script>
+
+</body>
+
+</html>
